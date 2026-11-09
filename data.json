@@ -1,6 +1,6 @@
 {
  "ym": "2026-11",
- "updated": "2026-11-04T12:20+00:00",
+ "updated": "2026-11-09T09:20+00:00",
  "stores": {
   "dv": {
    "name": "Deporte VIP Alcázar",
@@ -105,52 +105,23 @@
     },
     {
      "d": 9,
-     "shifts": [
-      {
-       "s": "dv",
-       "t": "C"
-      }
-     ]
+     "off": "Libre"
     },
     {
      "d": 10,
-     "shifts": [
-      {
-       "s": "dv",
-       "t": "M"
-      }
-     ]
+     "off": "Libre"
     },
     {
      "d": 11,
-     "shifts": [
-      {
-       "s": "dv",
-       "t": "M"
-      }
-     ]
+     "off": "Libre"
     },
     {
      "d": 12,
-     "shifts": [
-      {
-       "s": "dv",
-       "t": "M"
-      },
-      {
-       "s": "ov",
-       "t": "T"
-      }
-     ]
+     "off": "Libre"
     },
     {
      "d": 13,
-     "shifts": [
-      {
-       "s": "dv",
-       "t": "M"
-      }
-     ]
+     "off": "Libre"
     },
     {
      "d": 14,
