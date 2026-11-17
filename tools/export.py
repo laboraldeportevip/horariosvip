@@ -98,9 +98,16 @@ def main(base, ym, out):
     for wid, w in sorted(workers.items(), key=lambda kv: (kv[1].get("order", 99), kv[1].get("name", ""))):
         if w.get("active") is False or w.get("soloNomina"):
             continue
+        # fuera de contrato todo el mes (campos desde/hasta de la ficha): no sale
+        desde, hasta = w.get("desde"), w.get("hasta")
+        if (desde and desde > iso(ndays)) or (hasta and hasta < iso(1)):
+            continue
         days = []
         any_entry = False
         for d in range(1, ndays + 1):
+            if (desde and iso(d) < desde) or (hasta and iso(d) > hasta):
+                days.append({"d": d})  # antes o después de su contrato: vacío
+                continue
             o, ab = resolve(wid, d)
             shifts = [{"s": k, "t": o[k]} for k in ORDER if o.get(k) in ("M", "T", "C")]
             if shifts:
