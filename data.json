@@ -1,6 +1,6 @@
 {
  "ym": "2026-11",
- "updated": "2026-11-17T09:04+00:00",
+ "updated": "2026-11-17T09:12+00:00",
  "stores": {
   "dv": {
    "name": "Deporte VIP Alcázar",
@@ -1543,12 +1543,7 @@
     },
     {
      "d": 30,
-     "shifts": [
-      {
-       "s": "dt",
-       "t": "C"
-      }
-     ]
+     "off": "Vacaciones"
     }
    ]
   },
