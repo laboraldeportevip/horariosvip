@@ -186,13 +186,13 @@ h1 span{color:var(--muted);font-weight:600;text-transform:capitalize}
     for(let i=0;i<first;i++)c+='<div class="day pad" aria-hidden="true"></div>';
     for(const x of p.days){
       const work=!!x.shifts;const cls=['day',work?'':'off',isToday(x.d)?'today':''].join(' ');
-      const body=work?x.shifts.map(shiftHtml).join(''):x.off==='Vacaciones'?'<span class="vac">Vacaciones</span>':'<span class="off-l">Libre</span>';
+      const body=work?x.shifts.map(shiftHtml).join(''):x.off==='Vacaciones'?'<span class="vac">Vacaciones</span>':`<span class="off-l">${esc(x.off||'Libre')}</span>`;
       c+=`<div class="${cls}"><div class="n">${x.d}<small>${DOW[dowOf(x.d)]}</small></div>${body}${flagHtml(x.d)}</div>`;
     }
     $('cal').innerHTML=c;
     $('list').innerHTML=p.days.map(x=>{
       const work=!!x.shifts;
-      const body=work?x.shifts.map(shiftHtml).join(''):x.off==='Vacaciones'?'<span class="vac" style="align-self:flex-start;font-size:12px;font-weight:700;border-radius:3px;padding:1px 6px;background:var(--k-V);color:var(--k-V-ink)">Vacaciones</span>':'<span class="none">Libre</span>';
+      const body=work?x.shifts.map(shiftHtml).join(''):x.off==='Vacaciones'?'<span class="vac" style="align-self:flex-start;font-size:12px;font-weight:700;border-radius:3px;padding:1px 6px;background:var(--k-V);color:var(--k-V-ink)">Vacaciones</span>':`<span class="none">${esc(x.off||'Libre')}</span>`;
       return`<div class="row ${work?'':'off'} ${isToday(x.d)?'today':''}"><div class="dd">${x.d}<small>${DOWL[dowOf(x.d)]}</small></div><div class="what">${body}${flagHtml(x.d)}</div></div>`}).join('');
   }
   function renderStores(){

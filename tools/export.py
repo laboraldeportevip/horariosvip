@@ -104,6 +104,7 @@ def main(base, ym, out):
             continue
         days = []
         any_entry = False
+        redes = (w.get("totalSem") or 0) > (w.get("hours") or 0)
         for d in range(1, ndays + 1):
             if (desde and iso(d) < desde) or (hasta and iso(d) > hasta):
                 days.append({"d": d})  # antes o después de su contrato: vacío
@@ -116,6 +117,9 @@ def main(base, ym, out):
             elif ab and ab.get("c") == "V":
                 any_entry = True
                 days.append({"d": d, "off": "Vacaciones"})
+            elif redes and not ab and dow(d) != 0 and not closed(STORES[w.get("base", "dv")]["loc"], d):
+                # parte de su jornada es redes/grabación (p. ej. Yisus): ese día no es libre
+                days.append({"d": d, "off": "Redes / grabación"})
             else:
                 days.append({"d": d, "off": "Libre"})
         if any_entry:
